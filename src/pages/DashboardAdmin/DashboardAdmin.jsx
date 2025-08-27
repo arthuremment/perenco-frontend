@@ -144,7 +144,7 @@ const DashboardAdmin = () => {
           />
         )}
         {activeTab === "analytics" && (
-          <Analytics reports={reports} ships={ships} />
+          <Analytics reports={allReports.reports} ships={ships} />
         )}
       </main>
 
