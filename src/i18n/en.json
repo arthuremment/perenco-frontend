@@ -1,0 +1,25 @@
+{
+  "login": {
+    "title": "PERENCO Log",
+    "subtitle": "Logistics Operations Tracking",
+    "email": "Email address",
+    "password": "Password",
+    "button": "Sign in"
+  },
+  "dashboardNav": {
+    "title": "Ship dashboard",
+    "captain": "Master",
+    "crew": "Crew",
+    "gasoil": "Gasoil",
+    "cargo": "Cargo",
+    "maintenance": "Maintenance",
+    "infos": "General information",
+    "typeN": "Vessel type",
+    "position": "Position",
+    "cargoA": "Cargo",
+    "typeC": "Cargo type",
+    "poids": "Weight",
+    "volume": "Volume",
+    "activity": "Recent activities"
+  }
+}
