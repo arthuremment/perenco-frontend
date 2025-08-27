@@ -15,7 +15,7 @@ export const useAuthStore = create(
         set({ loading: true, error: null });
         try {
           const endpoint =
-            type === "admin" ? `${import.meta.env.VITE_API_URL}/auth/login/admin` : `${import.meta.env.VITE_API_URL}/auth/login/ship`;
+            type === "admin" ? `${import.meta.env.VITE_API_URL}/api/auth/login/admin` : `${import.meta.env.VITE_API_URL}/auth/login/ship`;
           const response = await axios.post(endpoint, credentials);
 
           set({
