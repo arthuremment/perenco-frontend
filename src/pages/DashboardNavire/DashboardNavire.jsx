@@ -21,7 +21,7 @@ export default function ShipDashboard() {
   const { reports, fetchShipReports } = useReportsStore();
   const { user } = useAuthStore();
 
-  console.log(currentShip)
+  console.log(currentShip);
   //console.log(user)
 
   useEffect(() => {
@@ -36,7 +36,17 @@ export default function ShipDashboard() {
     }
   }, [user]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
   if (error) return <div>Error: {error}</div>;
   if (!currentShip && user?.type === "ship") return <div>No ship found</div>;
 
@@ -46,9 +56,9 @@ export default function ShipDashboard() {
 
   const currentStock =
     parseFloat(mostRecentReport?.fuel_oil_rob) +
-    parseFloat(mostRecentReport?.fuel_oil_received) -
-    (parseFloat(mostRecentReport?.fuel_oil_consumed) -
-      parseFloat(mostRecentReport?.fuel_oil_delivered)) || 0;
+      parseFloat(mostRecentReport?.fuel_oil_received) -
+      (parseFloat(mostRecentReport?.fuel_oil_consumed) -
+        parseFloat(mostRecentReport?.fuel_oil_delivered)) || 0;
 
   const totalCapacity = 15000;
   const fuelPercentage = (currentStock / totalCapacity) * 100;
@@ -162,7 +172,9 @@ export default function ShipDashboard() {
               <p className="text-sm font-medium text-gray-600">
                 {t("dashboardNav.gasoil")}
               </p>
-              <p className="text-2xl font-bold text-gray-900">{currentStock} L</p>
+              <p className="text-2xl font-bold text-gray-900">
+                {currentStock} L
+              </p>
             </div>
             <div className="h-12 w-12 bg-orange-100 rounded-lg flex items-center justify-center">
               <Fuel className="h-6 w-6 text-orange-600" />
