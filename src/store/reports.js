@@ -59,7 +59,7 @@ export const useReportsStore = create(
       createReport: async (reportData, showToast = true) => {
         set({ loading: true, error: null, validationErrors: {} });
         try {
-          const response = await api.post("/reports", reportData);
+          const response = await api.post("api/reports", reportData);
           set({ loading: false });
 
           if (showToast) {
@@ -97,7 +97,7 @@ export const useReportsStore = create(
       fetchShipReports: async (shipId, page = 1, limit = 10) => {
         set({ loading: true, error: null });
         try {
-          const response = await api.get(`/reports/ship/${shipId}`);
+          const response = await api.get(`api/reports/ship/${shipId}`);
           set({ reports: response.data.data, loading: false });
           return response.data;
         } catch (error) {
@@ -114,7 +114,7 @@ export const useReportsStore = create(
       fetchReportById: async (reportId) => {
         set({ loading: true, error: null });
         try {
-          const response = await api.get(`/reports/${reportId}`);
+          const response = await api.get(`api/reports/${reportId}`);
           set({ currentReport: response.data.data, loading: false });
           return response.data;
         } catch (error) {
@@ -131,7 +131,7 @@ export const useReportsStore = create(
       updateOperationalReport: async (reportId, reportData, showToast = true) => {
         set({ loading: true, error: null, validationErrors: {} });
         try {
-          const response = await api.put(`/reports/${reportId}`, reportData);
+          const response = await api.put(`api/reports/${reportId}`, reportData);
           set({ loading: false });
           return response.data;
         } catch (error) {
@@ -158,7 +158,7 @@ export const useReportsStore = create(
       fetchReportById: async (reportId) => {
         set({ loading: true, error: null });
         try {
-          const response = await api.get(`/reports/${reportId}`);
+          const response = await api.get(`api/reports/${reportId}`);
           set({ currentReport: response.data.data, loading: false });
           return response.data;
         } catch (error) {
@@ -175,7 +175,7 @@ export const useReportsStore = create(
       fetchReports: async () => {
         set({ loading: true, error: null });
         try {
-          const response = await api.get(`/reports`);
+          const response = await api.get(`api/reports`);
           set({ allReports: response.data.data, loading: false });
           return response.data;
         } catch (error) {

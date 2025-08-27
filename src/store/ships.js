@@ -15,7 +15,7 @@ export const useShipsStore = create(
       fetchCurrentShip: async () => {
         set({ loading: true, error: null });
         try {
-          const response = await api.get("/ships/me/profile");
+          const response = await api.get("api/ships/me/profile");
           if (!response.data?.data) {
             throw new Error("Structure de réponse invalide");
           }
@@ -36,7 +36,7 @@ export const useShipsStore = create(
       fetchShips: async (page = 1, limit = 10) => {
         set({ loading: true, error: null });
         try {
-          const response = await api.get(`/ships?page=${page}&limit=${limit}`);
+          const response = await api.get(`api/ships?page=${page}&limit=${limit}`);
           set({ ships: response.data.data.ships, loading: false });
           return response.data;
         } catch (error) {
@@ -52,7 +52,7 @@ export const useShipsStore = create(
       createShip: async (shipData) => {
         set({ loading: true, error: null });
         try {
-          const response = await api.post("/ships", shipData);
+          const response = await api.post("api/ships", shipData);
 
           // Mettre à jour la liste des navires
           const { ships } = get();
@@ -75,7 +75,7 @@ export const useShipsStore = create(
       updateShip: async (id, shipData) => {
         set({ loading: true, error: null });
         try {
-          const response = await api.put(`/ships/${id}`, shipData);
+          const response = await api.put(`api/ships/${id}`, shipData);
 
           // Mettre à jour la liste des navires
           const { ships } = get();
@@ -101,7 +101,7 @@ export const useShipsStore = create(
       deleteShip: async (id) => {
         set({ loading: true, error: null });
         try {
-          await api.delete(`/ships/${id}`);
+          await api.delete(`api/ships/${id}`);
           
           // Mettre à jour la liste des navires
           const { ships } = get();
