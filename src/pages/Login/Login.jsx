@@ -199,10 +199,11 @@ export default function LoginForm() {
 
             <button
               type="submit"
-              disabled={loading}
+              //disabled={loading}
               className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-orange-500 hover:from-blue-700 hover:to-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
             >
-              {loading ? "Connexion..." : "Se connecter"}
+              Connexion
+              {/* {loading ? "Connexion..." : "Se connecter"} */}
             </button>
           </form>
         </div>
